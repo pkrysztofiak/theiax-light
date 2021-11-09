@@ -12,6 +12,7 @@
         <module>theiax-view</module>
         <module>theiax-model</module>
         <module>theiax-presentation-model</module>
+        <module>theiax-reactor</module>
     </modules>
 
     <properties>

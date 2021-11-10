@@ -34,7 +34,7 @@ public class View {
 
     private void onWindowViewCreated(WindowView windowView) {
         Stage stage = new Stage();
-        stage.setScene(new Scene(new StackPane(new Label("Window")), 400, 400));
+        stage.setScene(new Scene(windowView.getParent(), 400, 400));
         stage.show();
     }
 }

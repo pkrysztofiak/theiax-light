@@ -1,4 +1,4 @@
-package com.theiax.view;
+package com.theiax.view.window;
 
 import com.theiax.presentationmodel.domain.Window;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,13 @@ public class WindowView {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WindowView.fxml"));
         fxmlLoader.setControllerFactory(clazz -> {
-            return this;
+            if (clazz.equals(WindowView.class)) {
+                return this;
+            } else if (clazz.equals(WindowTabsView.class)) {
+                return new WindowTabsView(window);
+            } else {
+                throw new IllegalArgumentException();
+            }
         });
         try {
             parent = fxmlLoader.load();

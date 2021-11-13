@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane style="-fx-background-color: red, green; -fx-background-insets: 0, 1;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theiax.view.window.WindowTabView">
+<StackPane style="-fx-background-color: red, green; -fx-background-insets: 0, 1;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theiax.view.window.TabView">
    <children>
       <Label fx:id="nameLabel" text="Tab" />
    </children>

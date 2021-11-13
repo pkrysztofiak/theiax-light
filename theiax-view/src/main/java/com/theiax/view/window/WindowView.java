@@ -18,8 +18,8 @@ public class WindowView {
         fxmlLoader.setControllerFactory(clazz -> {
             if (clazz.equals(WindowView.class)) {
                 return this;
-            } else if (clazz.equals(WindowTabsView.class)) {
-                return new WindowTabsView(window);
+            } else if (clazz.equals(TabPaneView.class)) {
+                return new TabPaneView(window);
             } else {
                 throw new IllegalArgumentException();
             }

@@ -4,6 +4,7 @@ module theiax.view {
     requires reactor.core;
     requires theiax.presentation.model;
     requires org.reactivestreams;
+    requires theiax.reactor;
 
     opens com.theiax.view to javafx.fxml;
     opens com.theiax.view.window to javafx.fxml;

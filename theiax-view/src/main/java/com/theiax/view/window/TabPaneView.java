@@ -1,5 +1,6 @@
 package com.theiax.view.window;
 
+import com.theiax.presentationmodel.PresentationModel;
 import com.theiax.presentationmodel.domain.Window;
 import com.theiax.reactor.Additions;
 import javafx.collections.FXCollections;
@@ -16,6 +17,7 @@ import java.util.ResourceBundle;
 
 public class TabPaneView implements Initializable {
 
+    private final PresentationModel presentationModel;
     private final Window window;
 
     @FXML
@@ -26,7 +28,8 @@ public class TabPaneView implements Initializable {
     private final ObservableList<TabView> tabs = FXCollections.observableArrayList();
     private final Flux<TabView> tabAdded = Additions.of(tabs).startWith(tabs).subscribeOn(Schedulers.single());
 
-    public TabPaneView(Window window) {
+    public TabPaneView(PresentationModel presentationModel, Window window) {
+        this.presentationModel = presentationModel;
         this.window = window;
 
         tabAdded.subscribe(this::onTabAdded);
@@ -35,11 +38,12 @@ public class TabPaneView implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         window.perspectiveAdded().subscribe(perspective -> {
-            tabs.add(new TabView(perspective));
+            tabs.add(new TabView(presentationModel, window, perspective));
         });
     }
 
     private void onTabAdded(TabView tabView) {
         tabsPane.getChildren().add(tabView.getRoot());
     }
+
 }

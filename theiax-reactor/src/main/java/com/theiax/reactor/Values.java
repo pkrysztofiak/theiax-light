@@ -16,6 +16,7 @@ public class Values {
                 }
             };
             observableValue.addListener(changeListener);
+            Optional.ofNullable(observableValue.getValue()).ifPresent(sink::next);
             sink.onDispose(() -> observableValue.removeListener(changeListener));
         });
     }

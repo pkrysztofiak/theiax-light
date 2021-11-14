@@ -1,5 +1,6 @@
 package com.theiax.presentationmodel;
 
+import com.theiax.presentationmodel.domain.Perspective;
 import com.theiax.presentationmodel.domain.Window;
 import com.theiax.presentationmodel.services.WindowService;
 import com.theiax.presentationmodel.services.window.WindowServiceImpl;
@@ -22,5 +23,11 @@ public class PresentationModel {
 
     public Flux<Window> windowAdded() {
         return windowAdded;
+    }
+
+    public void selectPerspective(Perspective perspective) {
+        for (Window window : windows) {
+            window.selectPerspective(perspective);
+        }
     }
 }

@@ -25,7 +25,7 @@ public class View {
     }
 
     private WindowView createWindowView(Window window) {
-        return new WindowView(window);
+        return new WindowView(presentationModel, window);
     }
 
     private void onWindowViewCreated(WindowView windowView) {

@@ -16,18 +16,26 @@ public class PerspectiveServiceImpl implements PerspectiveService {
         Perspective searchPerspective = createSearchPerspective();
         Perspective ctPerspective = createCTPerspective();
         perspectives.add(searchPerspective);
-        perspectives.add(ctPerspective);
+//        perspectives.add(ctPerspective);
     }
 
     private static Perspective createSearchPerspective() {
-        GridCell cell = new GridCell(new Bounds(0, 0, 1, 1), ViewType.SEARCH_BROWSER);
-        List<GridCell> cells = new ArrayList<>();
-        cells.add(cell);
-        Grid grid = new Grid(cells);
+        GridCell cell1 = new GridCell(new Bounds(0, 0, 1, 1), ViewType.SEARCH_BROWSER);
+        List<GridCell> cells1 = new ArrayList<>();
+        cells1.add(cell1);
+        Grid grid1 = new Grid(cells1);
+
+        GridCell cell2 = new GridCell(new Bounds(0, 0, 1, 1), ViewType.SEARCH_BROWSER);
+        List<GridCell> cells2 = new ArrayList<>();
+        cells2.add(cell2);
+        Grid grid2 = new Grid(cells1);
+
         List<Grid> grids = new ArrayList<>();
-        grids.add(grid);
+        grids.add(grid1);
+        grids.add(grid2);
 
         Perspective searchPerspective = new Perspective("Search", PerspectiveType.SEARCH, grids);
+
 
         return searchPerspective;
     }

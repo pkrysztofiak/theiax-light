@@ -14,10 +14,8 @@ public class Launcher extends Application {
     public void start(Stage primaryStage) throws Exception {
         Schedulers.single().schedule(() -> {
 
-
             PresentationModel presentationModel = new PresentationModel();
             new View(presentationModel);
-
 
         });
     }

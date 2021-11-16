@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Window {
 
-    private int index;
+    private final int index;
 
     private final PerspectiveService perspectiveService = new PerspectiveServiceImpl();
 
@@ -52,5 +52,9 @@ public class Window {
 
     public void selectPerspective(Perspective perspective) {
         selectedPerspectiveProperty.setValue(perspective);
+    }
+
+    public int getIndex() {
+        return index;
     }
 }

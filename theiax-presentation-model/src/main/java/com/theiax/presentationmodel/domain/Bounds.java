@@ -32,4 +32,14 @@ public class Bounds {
     public double getHeight() {
         return height;
     }
+
+    @Override
+    public String toString() {
+        return "Bounds{" +
+                "x=" + x +
+                ", y=" + y +
+                ", width=" + width +
+                ", height=" + height +
+                '}';
+    }
 }

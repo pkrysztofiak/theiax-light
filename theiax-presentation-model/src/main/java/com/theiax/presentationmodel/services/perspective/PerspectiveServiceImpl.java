@@ -2,7 +2,6 @@ package com.theiax.presentationmodel.services.perspective;
 
 import com.theiax.presentationmodel.domain.*;
 import com.theiax.presentationmodel.services.PerspectiveService;
-import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,7 @@ public class PerspectiveServiceImpl implements PerspectiveService {
         Perspective searchPerspective = createSearchPerspective();
         Perspective ctPerspective = createCTPerspective();
         perspectives.add(searchPerspective);
-//        perspectives.add(ctPerspective);
+        perspectives.add(ctPerspective);
     }
 
     private static Perspective createSearchPerspective() {

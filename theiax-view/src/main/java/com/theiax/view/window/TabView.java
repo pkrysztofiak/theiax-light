@@ -45,7 +45,9 @@ public class TabView implements Initializable {
             e.printStackTrace();
         }
 
-        window.perspectiveSelected().publishOn(Schedulers.fromExecutor(Platform::runLater)).subscribe(this::onSelectedPerspectiveChanged);
+        window.perspectiveSelected()
+                .publishOn(Schedulers.fromExecutor(Platform::runLater))
+                .subscribe(this::onSelectedPerspectiveChanged);
     }
 
     @Override
@@ -56,13 +58,15 @@ public class TabView implements Initializable {
     }
 
     private void registerListeners() {
-        Events.of(root, MouseEvent.MOUSE_CLICKED).publishOn(Schedulers.single()).subscribe(event -> {
-            if (event.isControlDown()) {
-                window.selectPerspective(perspective);
-            } else {
-                presentationModel.selectPerspective(perspective);
-            }
-        });
+        Events.of(root, MouseEvent.MOUSE_CLICKED)
+                .publishOn(Schedulers.single())
+                .subscribe(event -> {
+                    if (event.isControlDown()) {
+                        window.selectPerspective(perspective);
+                    } else {
+                        presentationModel.selectPerspective(perspective);
+                    }
+                });
     }
 
     public Parent getRoot() {

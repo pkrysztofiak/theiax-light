@@ -52,10 +52,15 @@ public class GridView implements Initializable {
         cellAdded.publishOn(Schedulers.fromExecutor(Platform::runLater)).subscribe(gridCellView -> {
             pane.getChildren().add(gridCellView.getRoot());
         });
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        registerListeners();
+    }
+
+    private void registerListeners() {
         grid.cellAdded().subscribe(gridCell -> {
 
             cells.add(new GridCellView(gridCell));
@@ -67,6 +72,15 @@ public class GridView implements Initializable {
                         gridCell.updateBounds(bounds);
                     });
         });
+
+        window.perspectiveSelected()
+                .subscribe(selectedPerspective -> {
+                    if (perspective.equals(selectedPerspective)) {
+                        Platform.runLater(() -> {
+                            pane.toFront();
+                        });
+                    }
+                });
     }
 
     public Parent getRoot() {

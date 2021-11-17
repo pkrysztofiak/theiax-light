@@ -26,6 +26,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <fx:include source="TabPaneView.fxml" />
+      <fx:include source="TabPaneView.fxml" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>

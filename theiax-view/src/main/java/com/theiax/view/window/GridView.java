@@ -60,7 +60,7 @@ public class GridView implements Initializable {
 
             cells.add(new GridCellView(gridCell));
 
-            Values.of(pane.boundsInLocalProperty()).subscribeOn(Schedulers.fromExecutor(Platform::runLater)).publishOn(Schedulers.single()).subscribe(bounds -> {
+            Values.of(pane.layoutBoundsProperty()).subscribeOn(Schedulers.fromExecutor(Platform::runLater)).publishOn(Schedulers.single()).subscribe(bounds -> {
                gridCell.updateBounds(bounds);
             });
         });

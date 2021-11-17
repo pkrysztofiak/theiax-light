@@ -28,7 +28,7 @@ public class PerspectiveServiceImpl implements PerspectiveService {
         GridCell cell2 = new GridCell(new Bounds(0, 0, 1, 1), ViewType.SEARCH_BROWSER);
         List<GridCell> cells2 = new ArrayList<>();
         cells2.add(cell2);
-        Grid grid2 = new Grid(cells1);
+        Grid grid2 = new Grid(cells2);
 
         List<Grid> grids = new ArrayList<>();
         grids.add(grid1);

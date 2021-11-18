@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Regular.ttf');
+}
+
+.root {
+    -fx-font-family: Roboto;
+}
+
+.tab-view {
+    -fx-background-color: blue;
+}

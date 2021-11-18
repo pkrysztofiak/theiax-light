@@ -30,7 +30,9 @@ public class View {
 
     private void onWindowViewCreated(WindowView windowView) {
         Stage stage = new Stage();
-        stage.setScene(new Scene(windowView.getParent(), 400, 400));
+        Scene scene = new Scene(windowView.getParent(), 400, 400);
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
+        stage.setScene(scene);
         stage.show();
     }
 }

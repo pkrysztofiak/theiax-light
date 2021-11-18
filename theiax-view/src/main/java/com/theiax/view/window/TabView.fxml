@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
 
-<StackPane fx:id="root" style="-fx-background-color: red, green; -fx-background-insets: 0, 1;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theiax.view.window.TabView">
+<StackPane fx:id="root" styleClass="tab-view" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theiax.view.window.TabView">
    <children>
       <Label fx:id="nameLabel" text="Tab" />
    </children>

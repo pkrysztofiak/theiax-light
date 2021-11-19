@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.SVGPath?>
 
-<StackPane fx:id="root" styleClass="tab-view" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theiax.view.window.TabView">
+
+<HBox style="-fx-font-size: 4em;" styleClass="tab-view" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theiax.view.window.TabView">
    <children>
+      <StackPane styleClass="icon-button">
+         <children>
+            <Group>
+               <children>
+                  <SVGPath content="m 15.555556,0 h -14 C 0.777778,0 0,0.7777776 0,1.5555556 V 12.444444 C 0,13.3 0.7,14 1.555556,14 h 14 c 0.777776,0 1.555556,-0.777776 1.555556,-1.555556 V 1.5555556 C 17.111112,0.7777776 16.333332,0 15.555556,0 Z m 0,12.382224 c -0.01556,0.02332 -0.04668,0.04668 -0.06224,0.06221 H 1.555556 V 1.6177776 l 0.06222,-0.062221 h 13.867778 c 0.02332,0.015556 0.04668,0.046668 0.06223,0.062221 V 12.382224 Z M 7.777776,9.73 5.833333,7.388888 l -2.722222,3.5 H 14 L 10.5,6.2222236 Z" styleClass="icon" />
+               </children>
+            </Group>
+         </children>
+      </StackPane>
       <Label fx:id="nameLabel" text="Tab" />
    </children>
-   <padding>
-      <Insets left="16.0" right="16.0" />
-   </padding>
-</StackPane>
+</HBox>

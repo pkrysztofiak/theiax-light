@@ -3,10 +3,30 @@
     src: url('Roboto-Regular.ttf');
 }
 
+* {
+    -icon-color: rgb(187, 187, 187);
+
+    -tab-text-color: rgb(187, 187, 187);
+    -tab-bckg-color: rgb(60, 63, 65);
+    -tab-selected-bckg-color: rgb(43, 43, 43);
+}
+
 .root {
     -fx-font-family: Roboto;
 }
 
+.icon-button .icon {
+    -fx-scale-x: 0.08333em;
+    -fx-scale-y: 0.08333em;
+    -fx-fill: -icon-color;
+}
+
 .tab-view {
-    -fx-background-color: blue;
+    -fx-background-color: -tab-bckg-color;
+    -fx-spacing: 0.333333em;
+    -fx-padding: 0.5em 0.666667em 0.5em 0.666667em;
+}
+
+.tab-view .label {
+    -fx-text-fill: -tab-text-color;
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.SVGPath?>
 
 
-<HBox style="-fx-font-size: 4em;" styleClass="tab-view" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theiax.view.window.TabView">
+<HBox fx:id="root" style="-fx-font-size: 1em;" styleClass="tab-view" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theiax.view.window.TabView">
    <children>
       <StackPane styleClass="icon-button">
          <children>

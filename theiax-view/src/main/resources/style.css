@@ -27,6 +27,18 @@
     -fx-padding: 0.5em 0.666667em 0.5em 0.666667em;
 }
 
+.tab-view:hover {
+    -fx-background-color: -tab-selected-bckg-color;
+}
+
+.tab-view:selected {
+    -fx-background-color: -tab-selected-bckg-color;
+}
+
+.tab-view:selected:hover {
+    -fx-background-color: yellow;
+}
+
 .tab-view .label {
     -fx-text-fill: -tab-text-color;
 }

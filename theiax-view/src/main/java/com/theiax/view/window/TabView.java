@@ -5,6 +5,7 @@ import com.theiax.presentationmodel.domain.Perspective;
 import com.theiax.presentationmodel.domain.Window;
 import com.theiax.reactor.Events;
 import javafx.application.Platform;
+import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +25,8 @@ public class TabView implements Initializable {
 
     @FXML
     private Label nameLabel;
+
+    private final static PseudoClass SELECTED_PSEUDO_CLASS = PseudoClass.getPseudoClass("selected");
 
     private final PresentationModel presentationModel;
     private final Window window;
@@ -74,10 +77,13 @@ public class TabView implements Initializable {
     }
 
     private void onSelectedPerspectiveChanged(Perspective selectedPerspective) {
-        if (selectedPerspective == perspective) {
-            nameLabel.setText(nameLabel.getText() + "!");
-        } else {
-            nameLabel.setText(perspective.getName());
-        }
+        root.pseudoClassStateChanged(SELECTED_PSEUDO_CLASS, selectedPerspective == perspective);
+
+//        if (selectedPerspective == perspective) {
+//            root.pseudoClassStateChanged(SELECTED_PSEUDO_CLASS, true);
+//            nameLabel.setText(nameLabel.getText() + "!");
+//        } else {
+//            nameLabel.setText(perspective.getName());
+//        }
     }
 }

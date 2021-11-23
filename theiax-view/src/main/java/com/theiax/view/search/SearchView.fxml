@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theiax.view.search.SearchView">
+   <content>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="600.0" prefHeight="450.0" prefWidth="600.0">
+         <children>
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin>
+            </TextField>
+            <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Patient" />
+                <TableColumn prefWidth="75.0" text="Study date" />
+                  <TableColumn prefWidth="75.0" text="Birth date" />
+                  <TableColumn prefWidth="75.0" text="Modality" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

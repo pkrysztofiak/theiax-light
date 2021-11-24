@@ -48,7 +48,7 @@ public class TabView implements Initializable {
             e.printStackTrace();
         }
 
-        window.perspectiveSelected()
+        window.selectedPerspectiveFlux()
                 .publishOn(Schedulers.fromExecutor(Platform::runLater))
                 .subscribe(this::onSelectedPerspectiveChanged);
     }

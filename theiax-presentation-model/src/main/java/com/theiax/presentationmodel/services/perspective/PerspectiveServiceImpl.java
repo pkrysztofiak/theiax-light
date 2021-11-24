@@ -19,8 +19,8 @@ public class PerspectiveServiceImpl implements PerspectiveService {
     }
 
     private static Perspective createSearchPerspective() {
-        GridCell cell1_1 = new GridCell(new Bounds(0, 0, 1, 0.5), ViewType.SEARCH_BROWSER);
-        GridCell cell1_2 = new GridCell(new Bounds(0, 0.5, 1, 0.5), ViewType.SEARCH_BROWSER);
+        GridCell cell1_1 = new GridCell(new Bounds(0, 0, 0.25, 1.), ViewType.QUEUE, ViewType.SOURCES);
+        GridCell cell1_2 = new GridCell(new Bounds(0.25, 0., 0.75, 1), ViewType.SEARCH);
         List<GridCell> cells1 = new ArrayList<>();
         cells1.add(cell1_1);
         cells1.add(cell1_2);
@@ -37,9 +37,7 @@ public class PerspectiveServiceImpl implements PerspectiveService {
         grids.add(grid1);
         grids.add(grid2);
 
-        Perspective searchPerspective = new Perspective("Search", PerspectiveType.SEARCH, grids);
-
-        return searchPerspective;
+        return new Perspective("Search", PerspectiveType.SEARCH, grids);
     }
 
     private static Perspective createCTPerspective() {

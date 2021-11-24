@@ -26,7 +26,7 @@ public class Window {
     private final Flux<Perspective> perspectiveAdded = Additions.of(perspectives).startWith(perspectives).subscribeOn(Schedulers.single());
 
     private final Property<Perspective> selectedPerspectiveProperty = new SimpleObjectProperty<>();
-    private final Flux<Perspective> perspectiveSelected = Values.of(selectedPerspectiveProperty).subscribeOn(Schedulers.single());
+    private final Flux<Perspective> selectedPerspectiveFlux = Values.of(selectedPerspectiveProperty).subscribeOn(Schedulers.single());
 
     public Window(int index, Bounds bounds) {
         this.index = index;
@@ -46,8 +46,8 @@ public class Window {
         return perspectiveAdded;
     }
 
-    public Flux<Perspective> perspectiveSelected() {
-        return perspectiveSelected;
+    public Flux<Perspective> selectedPerspectiveFlux() {
+        return selectedPerspectiveFlux;
     }
 
     public void selectPerspective(Perspective perspective) {

@@ -5,23 +5,22 @@ import com.theiax.presentationmodel.domain.ViewType;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Region;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SearchView implements Initializable {
-
-    private ScrollPane root;
+public class SourcesView implements Initializable {
 
     private final GridCell gridCell;
 
-    public SearchView(GridCell gridCell) {
+    private Region root;
+
+    public SourcesView(GridCell gridCell) {
         this.gridCell = gridCell;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SearchView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SourcesView.fxml"));
         fxmlLoader.setControllerFactory(clazz -> {
             return this;
         });
@@ -35,7 +34,7 @@ public class SearchView implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gridCell.selectedViewFlux().subscribe(viewType -> {
-            boolean selected = ViewType.SEARCH.equals(viewType);
+            boolean selected = ViewType.SOURCES.equals(viewType);
             if (selected) {
                 Platform.runLater(() -> {
                     root.setVisible(true);
@@ -49,7 +48,7 @@ public class SearchView implements Initializable {
         });
     }
 
-    public Parent getRoot() {
+    public Region getRoot() {
         return root;
     }
 }

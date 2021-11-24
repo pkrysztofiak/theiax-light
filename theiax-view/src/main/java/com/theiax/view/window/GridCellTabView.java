@@ -2,11 +2,14 @@ package com.theiax.view.window;
 
 import com.theiax.presentationmodel.domain.GridCell;
 import com.theiax.presentationmodel.domain.ViewType;
+import com.theiax.reactor.Events;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import reactor.core.scheduler.Schedulers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,6 +45,12 @@ public class GridCellTabView implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         nameLabel.setText(viewType.toString());
+
+        Events.of(root, MouseEvent.MOUSE_CLICKED)
+                .publishOn(Schedulers.single())
+                .subscribe(event -> {
+                    cell.selectViewType(viewType);
+                });
     }
 
     public Parent getRoot() {

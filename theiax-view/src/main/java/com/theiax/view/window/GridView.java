@@ -73,7 +73,7 @@ public class GridView implements Initializable {
                     });
         });
 
-        window.perspectiveSelected()
+        window.selectedPerspectiveFlux()
                 .subscribe(selectedPerspective -> {
                     if (perspective.equals(selectedPerspective)) {
                         Platform.runLater(() -> {

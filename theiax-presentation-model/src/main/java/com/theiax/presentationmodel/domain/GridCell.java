@@ -56,4 +56,8 @@ public class GridCell {
     public Flux<ViewType> selectedViewFlux() {
         return selectedViewFlux;
     }
+
+    public void selectViewType(ViewType viewType) {
+        selectedViewProperty.setValue(viewType);
+    }
 }

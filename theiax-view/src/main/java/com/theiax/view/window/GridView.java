@@ -69,7 +69,7 @@ public class GridView implements Initializable {
                     .subscribeOn(Schedulers.fromExecutor(Platform::runLater))
                     .publishOn(Schedulers.single())
                     .subscribe(bounds -> {
-                        gridCell.updateBounds(bounds);
+                        gridCell.updateBounds(new Bounds(bounds));
                     });
         });
 

@@ -1,8 +1,5 @@
 package com.theiax.presentationmodel.domain;
 
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleObjectProperty;
-
 public class Bounds {
 
     private final double x;
@@ -15,6 +12,10 @@ public class Bounds {
         this.y = y;
         this.width = width;
         this.height = height;
+    }
+
+    public Bounds(javafx.geometry.Bounds bounds) {
+        this(bounds.getMinX(), bounds.getMinY(), bounds.getWidth(), bounds.getHeight());
     }
 
     public double getX() {

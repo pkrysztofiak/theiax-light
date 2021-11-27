@@ -9,7 +9,7 @@ public interface GridCell {
         return new GridCellImpl(ratioBounds, viewTypes);
     }
 
-    void updateBounds(javafx.geometry.Bounds parentBounds);
+    void updateBounds(Bounds parentBounds);
 
     void selectViewType(ViewType viewType);
 

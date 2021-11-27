@@ -34,7 +34,7 @@ public class GridCellImpl implements GridCell {
         }
     }
 
-    public void updateBounds(javafx.geometry.Bounds parentBounds) {
+    public void updateBounds(Bounds parentBounds) {
         Bounds ratioBounds = ratioBoundsProperty.getValue();
         double x = ratioBounds.getX() * parentBounds.getWidth();
         double y = ratioBounds.getY() * parentBounds.getHeight();
@@ -44,12 +44,12 @@ public class GridCellImpl implements GridCell {
         boundsProperty.setValue(bounds);
     }
 
-    public Property<Bounds> boundsPropertyProperty() {
-        return boundsProperty;
-    }
-
     public Flux<Bounds> ratioBoundsFlux() {
         return ratioBoundsFlux;
+    }
+
+    public Bounds getBounds() {
+        return boundsProperty.getValue();
     }
 
     public Flux<Bounds> boundsFlux() {

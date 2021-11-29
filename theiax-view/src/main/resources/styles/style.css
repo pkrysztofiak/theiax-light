@@ -1,6 +1,10 @@
+/*@font-face {*/
+/*    font-family: 'Roboto';*/
+/*    src: url('Roboto-Regular.ttf');*/
+/*}*/
 @font-face {
-    font-family: 'Roboto';
-    src: url('Roboto-Regular.ttf');
+    font-family: 'Merriweather';
+    src: url('fonts/Merriweather-Regular.ttf');
 }
 
 * {
@@ -12,7 +16,7 @@
 }
 
 .root {
-    -fx-font-family: Roboto;
+    -fx-font-family: Merriweather;
 }
 
 .icon-button .icon {

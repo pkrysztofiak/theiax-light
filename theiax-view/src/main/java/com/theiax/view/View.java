@@ -31,7 +31,10 @@ public class View {
     private void onWindowViewCreated(WindowView windowView) {
         Stage stage = new Stage();
         Scene scene = new Scene(windowView.getParent(), 400, 400);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("style.css").toExternalForm());
+//        scene.getStylesheets().add(getClass().getClassLoader().getResource("styles/style.css").toExternalForm());
+        System.out.println(getClass().getResource(getClass().getSimpleName() + ".class"));
+        System.out.println(getClass().getClassLoader().getResource("/"));
+        scene.getStylesheets().add(getClass().getResource("/styles/style.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

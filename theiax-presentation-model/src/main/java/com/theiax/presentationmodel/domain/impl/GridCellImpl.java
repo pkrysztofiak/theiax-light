@@ -34,12 +34,12 @@ public class GridCellImpl implements GridCell {
         }
     }
 
-    public void updateBounds(Bounds parentBounds) {
+    public void updateBounds(Bounds gridBounds) {
         Bounds ratioBounds = ratioBoundsProperty.getValue();
-        double x = ratioBounds.getX() * parentBounds.getWidth();
-        double y = ratioBounds.getY() * parentBounds.getHeight();
-        double width = ratioBounds.getWidth() * parentBounds.getWidth();
-        double height = ratioBounds.getHeight() * parentBounds.getHeight();
+        double x = ratioBounds.getX() * gridBounds.getWidth();
+        double y = ratioBounds.getY() * gridBounds.getHeight();
+        double width = ratioBounds.getWidth() * gridBounds.getWidth();
+        double height = ratioBounds.getHeight() * gridBounds.getHeight();
         Bounds bounds = new Bounds(x, y, width, height);
         boundsProperty.setValue(bounds);
     }

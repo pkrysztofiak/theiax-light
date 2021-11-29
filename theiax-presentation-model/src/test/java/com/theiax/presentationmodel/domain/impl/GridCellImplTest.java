@@ -1,7 +1,6 @@
 package com.theiax.presentationmodel.domain.impl;
 
 import com.theiax.presentationmodel.domain.Bounds;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,8 +12,8 @@ class GridCellImplTest {
     @Test
     void should_UpdateBounds_When_ParentBoundsNotNull_1() {
         //arrange
-        Bounds bounds = new Bounds(0.0, 0.0, 1.0, 1.0);
-        GridCellImpl gridCell = new GridCellImpl(bounds);
+        Bounds ratioBounds = new Bounds(0.0, 0.0, 1.0, 1.0);
+        GridCellImpl gridCell = new GridCellImpl(ratioBounds);
         Bounds parentBounds = new Bounds(0.0, 0.0, 100, 100);
 
         //act

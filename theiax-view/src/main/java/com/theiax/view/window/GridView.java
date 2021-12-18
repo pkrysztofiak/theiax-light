@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
+import reactor.util.function.Tuples;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +32,9 @@ public class GridView implements Initializable {
 
     @FXML
     private Pane pane;
+
+    private Flux<Bounds> boundsFlux;
+
 
     public GridView(PresentationModel presentationModel, Window window, Perspective perspective, Grid grid) {
         this.presentationModel = presentationModel;
@@ -57,21 +61,27 @@ public class GridView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        boundsFlux = Values.of(pane.layoutBoundsProperty()).map(Bounds::new);
+
         registerListeners();
     }
 
     private void registerListeners() {
-        grid.cellAdded().subscribe(gridCell -> {
 
-            cells.add(new GridCellView(gridCell));
 
-            Values.of(pane.layoutBoundsProperty())
-                    .subscribeOn(Schedulers.fromExecutor(Platform::runLater))
-                    .publishOn(Schedulers.single())
-                    .subscribe(bounds -> {
-                        gridCell.updateBounds(new Bounds(bounds));
-                    });
-        });
+        grid.cellAdded().subscribe(this::onGridCellAdded);
+
+//        grid.cellAdded().subscribe(gridCell -> {
+//
+//            cells.add(new GridCellView(gridCell));
+//
+//            Values.of(pane.layoutBoundsProperty())
+//                    .subscribeOn(Schedulers.fromExecutor(Platform::runLater))
+//                    .publishOn(Schedulers.single())
+//                    .subscribe(bounds -> {
+//                        gridCell.updateBounds(new Bounds(bounds));
+//                    });
+//        });
 
         window.selectedPerspectiveFlux()
                 .subscribe(selectedPerspective -> {
@@ -81,6 +91,19 @@ public class GridView implements Initializable {
                         });
                     }
                 });
+    }
+
+    private void onGridCellAdded(GridCell gridCell) {
+        System.out.println("onGridCellAdded()");
+        GridCellView gridCellView = new GridCellView(gridCell);
+        cells.add(gridCellView);
+
+        boundsFlux.withLatestFrom(gridCell.ratioBoundsFlux(), Tuples::of)
+                .subscribeOn(Schedulers.fromExecutor(Platform::runLater))
+                .onBackpressureLatest()
+                .flatMap(tuple -> gridCell.calculateBoundsAsync(tuple.getT1(), tuple.getT2()))
+                .publishOn(Schedulers.single())
+                .subscribe(gridCell::setBounds);
     }
 
     public Parent getRoot() {

@@ -34,15 +34,15 @@ public class GridCellImpl implements GridCell {
         }
     }
 
-    public void updateBounds(Bounds gridBounds) {
-        Bounds ratioBounds = ratioBoundsProperty.getValue();
-        double x = ratioBounds.getX() * gridBounds.getWidth();
-        double y = ratioBounds.getY() * gridBounds.getHeight();
-        double width = ratioBounds.getWidth() * gridBounds.getWidth();
-        double height = ratioBounds.getHeight() * gridBounds.getHeight();
-        Bounds bounds = new Bounds(x, y, width, height);
-        boundsProperty.setValue(bounds);
-    }
+//    public void updateBounds(Bounds gridBounds) {
+//        Bounds ratioBounds = ratioBoundsProperty.getValue();
+//        double x = ratioBounds.getX() * gridBounds.getWidth();
+//        double y = ratioBounds.getY() * gridBounds.getHeight();
+//        double width = ratioBounds.getWidth() * gridBounds.getWidth();
+//        double height = ratioBounds.getHeight() * gridBounds.getHeight();
+//        Bounds bounds = new Bounds(x, y, width, height);
+//        boundsProperty.setValue(bounds);
+//    }
 
     public Flux<Bounds> ratioBoundsFlux() {
         return ratioBoundsFlux;
@@ -52,9 +52,15 @@ public class GridCellImpl implements GridCell {
         return boundsProperty.getValue();
     }
 
+    @Override
+    public void setBounds(Bounds bounds) {
+        boundsProperty.setValue(bounds);
+    }
+
     public Flux<Bounds> boundsFlux() {
         return boundsFlux;
     }
+
 
     public Flux<ViewType> viewAddedFlux() {
         return viewAdded;
